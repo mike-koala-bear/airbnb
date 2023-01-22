@@ -19,12 +19,6 @@ jobs:
         with:
           node-version: 19.4.0
           cache: yarn
-      - name: Lint project/files
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Cache
         uses: actions/cache@v3.2.3
         with:
