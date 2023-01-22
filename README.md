@@ -1,13 +1,16 @@
-# README
+# Airbnb
+### Statuses:
+
+[![Test](https://github.com/mike-koala-bear/airbnb/actions/workflows/test.yml/badge.svg)](https://github.com/mike-koala-bear/airbnb/actions/workflows/test.yml)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.2.0
 
-* System dependencies
+* System dependencies npm, yarn, brew
 
 * Configuration
 
