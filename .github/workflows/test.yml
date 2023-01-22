@@ -12,12 +12,6 @@ jobs:
     steps:
       - name: Checkout repository content
         uses: actions/checkout@v3
-      - name: Set up Ruby
-        # uses: ruby/setup-ruby@v1
-        uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4
-        with:
-          ruby-version: ${{ matrix.ruby-version }}
-          bundler-cache: true
       - name: Install yarn
         run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - name: Setup npm/yarn
