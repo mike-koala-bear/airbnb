@@ -11,7 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository content
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Set up Ruby
         # uses: ruby/setup-ruby@v1
         uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4
@@ -21,7 +21,7 @@ jobs:
       - name: Install yarn
         run: curl -o- -L https://yarnpkg.com/install.sh | bash
       - name: Setup npm/yarn
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: 19.4.0
           cache: yarn
@@ -31,3 +31,8 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cache
+        uses: actions/cache@v3.2.3
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: javascript/
