@@ -1,0 +1,33 @@
+name: Test
+on: [push, pull_request]
+jobs:
+  test:
+    strategy:
+      matrix:
+        ruby-version: [ '3.2.0' ]
+        os:
+          - macos-latest
+          - ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Checkout repository content
+      - uses: actions/checkout@v3
+      - name: Set up Ruby
+        # uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@ee2113536afb7f793eed4ce60e8d3b26db912da4
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: Install yarn
+        run: curl -o- -L https://yarnpkg.com/install.sh | bash
+      - name: Setup npm/yarn
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 19.4.0
+          cache: yarn
+      - name: Lint project/files
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
