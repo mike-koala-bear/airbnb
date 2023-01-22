@@ -19,8 +19,3 @@ jobs:
         with:
           node-version: 19.4.0
           cache: yarn
-      - name: Cache
-        uses: actions/cache@v3.2.3
-        with:
-          # A list of files, directories, and wildcard patterns to cache and restore
-          path: javascript/
