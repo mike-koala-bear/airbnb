@@ -19,3 +19,5 @@ jobs:
         with:
           node-version: 19.4.0
           cache: yarn
+      - name: Run tests
+        run: bundle exec rspec
